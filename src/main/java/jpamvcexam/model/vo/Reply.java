@@ -9,8 +9,9 @@ public class Reply {
 	private int id;
 	private String name;
 	private String content;
-	@ManyToOne( optional = false ) 
-	private Meeting refid;
+	@ManyToOne( optional = false ) //관계설정*****메인 글 정보 없이 댓글 달 수 없기 때문에 optional = false
+	@JoinColumn(name="refid")
+	private Meeting refid;//타입 변수 선언(미팅 entity객체의 참조값..?)
 	public int getId() {
 		return id;
 	}

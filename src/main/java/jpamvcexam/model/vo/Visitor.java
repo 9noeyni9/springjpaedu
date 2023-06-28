@@ -13,7 +13,7 @@ public class Visitor {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private String name;
-//	@CreationTimestamp
+	@CreationTimestamp//자동으로 날짜 데이터 생성해주는 annotation
 	private java.sql.Date writeDate;
 	private String memo;
 	

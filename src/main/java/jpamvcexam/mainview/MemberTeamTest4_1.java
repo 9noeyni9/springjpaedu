@@ -4,9 +4,10 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
+import java.util.List;
 import java.util.Scanner;
 
-public class MemberTeamTest4 {
+public class MemberTeamTest4_1 {
 	public static void main(String[] args) {
 		EntityManagerFactory factory = Persistence.createEntityManagerFactory("entitytest");
         EntityManager em = factory.createEntityManager();
@@ -20,12 +21,13 @@ public class MemberTeamTest4 {
         
         TypedQuery<String> q = em.createQuery(jpql, String.class);
         q.setParameter("un", inputName);
-        String teamName = q.getSingleResult();
-        
-        if (teamName == null) {
+        List<String> list = q.getResultList();
+
+        //추출된 데이터가 없을 때 예외 발생이 아니라 "팀을 찾을 수가 없네요"로 변경해본다.
+        if (list.size() == 0) {
         	System.out.print("팀을 찾을 수 없네요..ㅜㅜ ");
         } else {
-        	System.out.printf("%s님의 팀명은 %s입니다...\n", inputName, teamName);
+        	System.out.printf("%s님의 팀명은 %s입니다...\n", inputName, list.get(0));
         }
         em.close();
         factory.close();

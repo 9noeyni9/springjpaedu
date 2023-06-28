@@ -3,7 +3,7 @@ package jpamvcexam.mainview;
 import jpamvcexam.controller.VisitorController;
 import java.util.Scanner;
 
-public class VisitorApp {
+public class VisitorApp {/*dao에 대한 정보 없음 controller에만 의존*/
 	public static void main(String[] args) {
 		Scanner scan = new Scanner(System.in);
 		VisitorController vc = new VisitorController();

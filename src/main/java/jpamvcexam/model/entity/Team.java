@@ -8,7 +8,7 @@ import javax.persistence.Id;
 
 public class Team {
 	@Id
-	@Column(name = "TEAM_ID")	
+	@Column(name = "TEAM_ID")	//컬럼명 변경 TEAM_ID->id로
 	private String id;
 	private String teamName;	
 	
